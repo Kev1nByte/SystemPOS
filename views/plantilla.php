@@ -9,26 +9,7 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <!--=====================================
-  PLUGINS DE JAVASCRIPT
-  ======================================-->
-  <!-- jQuery 3 -->
-  <script src="views/bower_components/jquery/dist/jquery.min.js"></script>
-  
-  <!-- Bootstrap 3.3.7 -->
-  <script src="views/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  
-  <!-- SlimScroll -->
-  <script src="views/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-  
-  <!-- FastClick -->
-  <script src="views/bower_components/fastclick/lib/fastclick.js"></script>
-  
-  <!-- AdminLTE App -->
-  <script src="views/dist/js/adminlte.min.js"></script>
-  
-  <!-- AdminLTE for demo purposes -->
-  <script src="views/dist/js/demo.js"></script>
+  <link rel="icon" href="views/img/plantilla/icono-negro.png">
 
   <!--=====================================
   PLUGINS DE CSS
@@ -50,6 +31,28 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <!--=====================================
+  PLUGINS DE JAVASCRIPT
+  ======================================-->
+  <!-- jQuery 3 -->
+  <script src="views/bower_components/jquery/dist/jquery.min.js"></script>
+  
+  <!-- Bootstrap 3.3.7 -->
+  <script src="views/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <!-- SlimScroll -->
+  <script src="views/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+  
+  <!-- FastClick -->
+  <script src="views/bower_components/fastclick/lib/fastclick.js"></script>
+  
+  <!-- AdminLTE App -->
+  <script src="views/dist/js/adminlte.min.js"></script>
+  
+  <!-- AdminLTE for demo purposes -->
+  <script src="views/dist/js/demo.js"></script>
+
 </head>
 
 <!--=====================================
@@ -69,17 +72,40 @@
 
   <?php
 
-    /** CABEZOTE */
+    /** Cabezote */
 
       include "modulos/cabezote.php";
 
-    /** MENU LATERAL */
+    /** Menú Lateral */
 
       include "modulos/menu.php";
 
-    /** Contenido de la Página */
+    /** Página de Inicio */
 
-        include "modulos/contenido.php";
+    if (isset($_GET["ruta"])) {
+
+      if ($_GET["ruta"] == "inicio" ||
+          $_GET["ruta"] == "usuarios" ||
+          $_GET["ruta"] == "categorias" ||
+          $_GET["ruta"] == "productos" ||
+          $_GET["ruta"] == "clientes" || 
+          $_GET["ruta"] == "ventas" ||
+          $_GET["ruta"] == "crear-venta" ||
+          $_GET["ruta"] == "reportes") {
+
+        include "modulos/".$_GET["ruta"].".php";
+      
+      }else{
+
+        include "modulos/404.php";
+
+      }
+
+    }else {
+      
+        include "modulos/inicio.php";
+
+    }
 
     /** Footer */
 
