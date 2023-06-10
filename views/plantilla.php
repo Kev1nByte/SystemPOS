@@ -58,62 +58,65 @@
 <!--=====================================
   CUERPO DEL DOCUMENTO
   ======================================-->
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
-
-<!-- Site wrapper -->
-<div class="wrapper">
-
-  <!-- =============================================== -->
-
-  <!-- =============================================== -->
-
-</div>
-<!-- ./wrapper -->
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
 
   <?php
 
-    /** Cabezote */
+    if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
-      include "modulos/cabezote.php";
+      echo '<div class="wrapper">';
 
-    /** Menú Lateral */
+        /** Cabezote */
 
-      include "modulos/menu.php";
+          include "modulos/cabezote.php";
 
-    /** Página de Inicio */
+        /** Menú Lateral */
 
-    if (isset($_GET["ruta"])) {
+          include "modulos/menu.php";
 
-      if ($_GET["ruta"] == "inicio" ||
-          $_GET["ruta"] == "usuarios" ||
-          $_GET["ruta"] == "categorias" ||
-          $_GET["ruta"] == "productos" ||
-          $_GET["ruta"] == "clientes" || 
-          $_GET["ruta"] == "ventas" ||
-          $_GET["ruta"] == "crear-venta" ||
-          $_GET["ruta"] == "reportes") {
+        /** Página de Inicio */
 
-        include "modulos/".$_GET["ruta"].".php";
-      
-      }else{
+        if (isset($_GET["ruta"])) {
 
-        include "modulos/404.php";
+          if ($_GET["ruta"] == "inicio" ||
+              $_GET["ruta"] == "usuarios" ||
+              $_GET["ruta"] == "categorias" ||
+              $_GET["ruta"] == "productos" ||
+              $_GET["ruta"] == "clientes" || 
+              $_GET["ruta"] == "ventas" ||
+              $_GET["ruta"] == "crear-venta" ||
+              $_GET["ruta"] == "reportes" ||
+              $_GET["ruta"] == "salir") {
 
-      }
+            include "modulos/".$_GET["ruta"].".php";
+          
+          }else{
 
-    }else {
-      
-        include "modulos/inicio.php";
+            include "modulos/404.php";
+
+          }
+
+        }else {
+          
+            include "modulos/inicio.php";
+
+        }
+
+        /** Footer */
+
+        include "modulos/footer.php";
+
+      echo '</div>';
+
+    }else{
+
+      include "modulos/login.php";
 
     }
 
-    /** Footer */
-
-    include "modulos/footer.php";
-
   ?>
 
-<script src="views/js/plantilla.js"></script>
+  <script src="views/js/plantilla.js"></script>
 
 </body>
 </html>
