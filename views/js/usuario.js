@@ -6,27 +6,27 @@ $(".nuevaFoto").change(function(){
 
     // Validamos el Formato de la Imagen sea JPG o PNG
 
-    if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/jpeg"){
+    if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
 
         $(".nuevaFoto").val("");
 
-        swal({
+         swal({
             title: "Error al subir la imagen",
-            text:"¡La imagen debe estar en formato JPG o PNG!",
-            type:"error",
-            confirmButtonText:"¡Cerrar!"
-        });
-    
+            text: "¡La imagen debe estar en formato JPG o PNG!",
+            type: "error",
+            confirmButtonText: "¡Cerrar!"
+          });
+
     }else if(imagen["size"] > 2000000){
 
         $(".nuevaFoto").val("");
 
-        swal({
+         swal({
             title: "Error al subir la imagen",
-            text:"¡La imagen no debe pesar mas de 2MB!",
-            type:"error",
-            confirmButtonText:"¡Cerrar!"
-        });
+            text: "¡La imagen no debe pesar más de 2MB!",
+            type: "error",
+            confirmButtonText: "¡Cerrar!"
+          });
 
     }else{
 
