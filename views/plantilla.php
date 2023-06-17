@@ -38,6 +38,10 @@ session_start();
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+  <!-- DataTables -->
+  <link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+  
   <!--=====================================
   PLUGINS DE JAVASCRIPT
   ======================================-->
@@ -58,6 +62,17 @@ session_start();
   
   <!-- AdminLTE for demo purposes -->
   <script src="views/dist/js/demo.js"></script>
+
+  <!-- DataTables -->
+  <script src="views/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="views/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="views/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
+  <script src="views/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+
+  <!-- SweetAlert 2 -->
+  <script src="views/plugins/sweetalert2/sweetalert2.all.js"></script>
+  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 
 </head>
 
