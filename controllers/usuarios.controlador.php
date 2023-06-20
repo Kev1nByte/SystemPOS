@@ -28,6 +28,11 @@ class ControladorUsuarios{
                     // Acciones si la autenticación es exitosa
                     
                     $_SESSION["iniciarSesion"] = "ok";
+                    $_SESSION["id"] = $respuesta["id"];
+					$_SESSION["nombre"] = $respuesta["nombre"];
+					$_SESSION["usuario"] = $respuesta["usuario"];
+					$_SESSION["foto"] = $respuesta["foto"];
+					$_SESSION["perfil"] = $respuesta["perfil"];
                     
                     echo '<script>
 
