@@ -10,21 +10,30 @@ class ControladorUsuarios{
 
             if (preg_match('/^[-a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
                 preg_match('/^[-a-zA-Z0-9]+$/', $_POST["ingPassword"])){
-
+                    
+                $encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');         
+            
                 $tabla = "usuarios";
 
                 $item = "usuario";
                 $valor = $_POST["ingUsuario"];
 
-                $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);            
+                $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-                if (is_array($respuesta) && isset($respuesta["usuario"]) && isset($respuesta["password"]) && $respuesta["usuario"]
-                 == $_POST["ingUsuario"] && $respuesta["password"] == $_POST["ingPassword"]) {
+                // if (is_array($respuesta) && isset($respuesta["usuario"]) && isset($respuesta["password"]) && 
+                // $respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $_POST["ingPassword"]) {
+                
+                if (isset($respuesta["usuario"] ) == $_POST["ingUsuario"] && isset($respuesta["password"]) == $encriptar) {
+                        
                     // Acciones si la autenticación es exitosa
                     
                     $_SESSION["iniciarSesion"] = "ok";
                     
-                    echo '<script>window.location = "inicio";</script>';
+                    echo '<script>
+
+                        window.location = "inicio";
+                    
+                    </script>';
 
                 } else {
                     // Acciones si la autenticación falla
@@ -106,10 +115,12 @@ class ControladorUsuarios{
                 }
 
                 $tabla = "usuarios";
+
+                $encriptar = crypt($_POST["nuevoPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 				
                 $datos = array("nombre" => $_POST["nuevoNombre"], 
                                 "usuario" => $_POST["nuevoUsuario"],
-                                "password"=> $_POST["nuevoPassword"],
+                                "password"=> $encriptar,
                                 "perfil"=> $_POST["nuevoPerfil"],
                                 "foto"=> $ruta);
 
