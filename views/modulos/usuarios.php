@@ -47,28 +47,59 @@
 
             <tbody>
 
-              <tr>
+            <?php
 
-                <td>1</td>
-                <td>Usuario Administrador</td>
-                <td>admin</td>
-                <td><img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px" alt=""></td> 
-                <td>Administrador</td>
-                <td><button class="btn btn-success btn-xs">Activador</button></td>
-                <td>2023-06-11 12:05:32</td>
+              $item = null;
+              $valor = null;
 
-                <td>
+              $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
-                  <div class="btn-group">
+              foreach ($usuarios as $key => $value){
+              
+                echo ' <tr>
+                        <td>1</td>
+                        <td>'.$value["nombre"].'</td>
+                        <td>'.$value["usuario"].'</td>';
 
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                        if($value["foto"] != ""){
 
-                  </div>
+                          echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
 
-                </td>
+                        }else{
 
-              </tr>
+                          echo '<td><img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
+
+                        }
+
+                        echo '<td>'.$value["perfil"].'</td>';
+
+                        if($value["estado"] != 0){
+
+                          echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
+
+                        }else{
+
+                          echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
+
+                        }             
+
+                        echo '<td>'.$value["ultimo_login"].'</td>
+                        <td>
+
+                          <div class="btn-group">
+                              
+                            <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+
+                            <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
+
+                          </div>  
+
+                        </td>
+
+                      </tr>';
+              }
+
+            ?> 
 
             </tbody>
 
