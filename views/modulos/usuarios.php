@@ -71,19 +71,9 @@
 
                         }
 
-                        echo '<td>'.$value["perfil"].'</td>';
-
-                        if($value["estado"] != 0){
-
-                          echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
-
-                        }else{
-
-                          echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
-
-                        }             
-
-                        echo '<td>'.$value["ultimo_login"].'</td>
+                        echo '<td>'.$value["perfil"].'</td>          
+                          <td><button class="btn btn-success btn-xs">Activado</button></td>
+                          <td>'.$value["ultimo_login"].'</td>
                         <td>
 
                           <div class="btn-group">
@@ -238,6 +228,140 @@
           $crearUsuario -> ctrCrearUsuario();
 
         ?>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Modal Editar Usuario -->
+
+<div id="modalEditarUsuario" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post" enctype="multipart/form-data">
+
+        <!-- Cabeza del modal -->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar usuario</h4>
+
+        </div>
+
+        <!-- Cuerpo modal -->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- Entrada para el nombre -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="Ingresar nombre" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para el usuario -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="Ingresar usuario" id="editarUsuario" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para la contraseña -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+
+                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueba contraseña" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para seleccionar perfil -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
+
+                <select class="form-control input-lg" name="editarPerfil">
+                  
+                  <option value="" id="editarPerfil"></option>
+
+                  <option value="Administrador">Administrador</option>
+
+                  <option value="Especial">Especial</option>
+
+                  <option value="Vendedor">Vendedor</option>
+
+                </select>
+
+              </div>
+
+            </div>
+
+             <!-- Entrada para subir foto -->
+
+             <div class="form-group">
+              
+              <div class="panel">SUBIR FOTO</div>
+
+              <input type="file" class="editarFoto" name="editarFoto">
+
+              <p class="help-block">Peso máximo de la foto 2MB</p>
+
+              <img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Pie Modal -->
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Modificar usuario</button>
+
+        </div>
+
+        <!-- <?php
+
+          $crearUsuario = new ControladorUsuarios();
+          $crearUsuario -> ctrCrearUsuario();
+
+        ?> -->
 
       </form>
 
