@@ -25,22 +25,29 @@ class ControladorUsuarios{
                 
                 if (isset($respuesta["usuario"] ) == $_POST["ingUsuario"] && isset($respuesta["password"]) == $encriptar) {
                         
-                    // Acciones si la autenticación es exitosa
-                    
-                    $_SESSION["iniciarSesion"] = "ok";
-                    $_SESSION["id"] = $respuesta["id"];
-					$_SESSION["nombre"] = $respuesta["nombre"];
-					$_SESSION["usuario"] = $respuesta["usuario"];
-					$_SESSION["foto"] = $respuesta["foto"];
-					$_SESSION["perfil"] = $respuesta["perfil"];
-                    
-                    echo '<script>
+					if($respuesta["estado"] == 1){
 
-                        window.location = "inicio";
-                    
-                    </script>';
+						// Acciones si la autenticación es exitosa
+						
+						$_SESSION["iniciarSesion"] = "ok";
+						$_SESSION["id"] = $respuesta["id"];
+						$_SESSION["nombre"] = $respuesta["nombre"];
+						$_SESSION["usuario"] = $respuesta["usuario"];
+						$_SESSION["foto"] = $respuesta["foto"];
+						$_SESSION["perfil"] = $respuesta["perfil"];
+						
+						echo '<script>
 
-                } else {
+							window.location = "inicio";
+						
+						</script>';
+
+					}else {
+						// Acciones si la autenticación falla
+						echo '<br><div class="alert alert-danger">El usuario aún no está activado</div>';
+					}
+
+                }else {
                     // Acciones si la autenticación falla
                     echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
                 }
