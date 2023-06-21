@@ -80,7 +80,7 @@
                               
                             <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
 
-                            <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger btnEliminarUsuario"><i class="fa fa-times"></i></button>
 
                           </div>  
 
@@ -285,7 +285,7 @@
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="Ingresar usuario" id="editarUsuario" required>
+                <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
 
               </div>
 
@@ -299,7 +299,9 @@
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueba contraseña" required>
+                <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
+
+                <input type="hidden" id="passwordActual" name="passwordActual">
 
               </div>
 
@@ -335,11 +337,13 @@
               
               <div class="panel">SUBIR FOTO</div>
 
-              <input type="file" class="editarFoto" name="editarFoto">
+              <input type="file" class="nuevaFoto" name="editarFoto">
 
               <p class="help-block">Peso máximo de la foto 2MB</p>
 
               <img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+
+              <input type="hidden" name="fotoActual" id="fotoActual">
 
             </div>
 
@@ -348,6 +352,7 @@
         </div>
 
         <!-- Pie Modal -->
+
         <div class="modal-footer">
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
@@ -356,12 +361,12 @@
 
         </div>
 
-        <!-- <?php
+        <?php
 
-          $crearUsuario = new ControladorUsuarios();
-          $crearUsuario -> ctrCrearUsuario();
+          $editarUsuario = new ControladorUsuarios();
+          $editarUsuario -> ctrEditarUsuario();
 
-        ?> -->
+        ?>
 
       </form>
 

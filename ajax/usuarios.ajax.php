@@ -25,11 +25,11 @@ class AjaxUsuarios{
 
 // EDITAR USUARIO
 
-    if(isset($_POST["idUsuario"])){
+	if(isset($_POST["idUsuario"])){
 
-        $editar = new AjaxUsuarios();
-        $editar -> idUsuario = $_POST["idUsuario"];
-        $editar -> ajaxEditarUsuario();
+		$editar = new AjaxUsuarios();
+		$editar -> idUsuario = $_POST["idUsuario"];
+		$editar -> ajaxEditarUsuario();
 
-    }
+	}
 
