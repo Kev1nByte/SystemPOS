@@ -1,16 +1,13 @@
 <div class="content-wrapper">
   
   <section class="content-header">
-
     <h1>
       Administrar Categoría
     </h1>
-
     <ol class="breadcrumb">
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       <li class="active">Administrar Categorías</li>
     </ol>
-
   </section>
 
   <section class="content">
@@ -165,13 +162,6 @@
           <button type="submit" class="btn btn-primary">Guardar categoría</button>
 
         </div>
-
-        <?php
-
-          $crearCategoria = new ControladorCategorias();
-          $crearCategoria -> ctrCrearCategoria();
-
-        ?>
 
       </form>
 

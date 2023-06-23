@@ -26,7 +26,7 @@
       
       <div class="box-body">
         
-          <table class="table table-bordered table-striped dt-responsive tablas">
+          <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
 
             <thead>
 
@@ -52,7 +52,7 @@
                 <td>1</td>
                 <td>Usuario Administrador</td>
                 <td>admin</td>
-                <td><img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px" alt=""></td> 
+                <td><img src="views/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td> 
                 <td>Administrador</td>
                 <td><button class="btn btn-success btn-xs">Activador</button></td>
                 <td>2023-06-11 12:05:32</td>
