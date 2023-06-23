@@ -113,7 +113,7 @@
    
 </div>
 
-<!-- Modal Agregar Usuario -->
+<!-- Modal Agregar Categoría -->
 
 <div id="modalAgregarCategoria" class="modal fade" role="dialog">
   
@@ -139,7 +139,7 @@
 
           <div class="box-body">
 
-            <!-- Entrada para el nombre -->
+            <!-- Entrada para el nombre categoríagit a -->
             
             <div class="form-group">
               
