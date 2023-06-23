@@ -107,7 +107,23 @@ $(document).on("click", ".btnActivar", function(){
       processData: false,
       success: function(respuesta){
 
-        
+        if(window.matchMedia("(max-width:767px)").matches){
+		
+			swal({
+			   title: "El usuario ha sido actualizado",
+			   type: "success",
+			   confirmButtonText: "¡Cerrar!"
+			 }).then(function(result) {
+			 
+				 if (result.value) {
+
+				 window.location = "usuarios";
+
+			 }
+
+		   });
+
+	 }
   
       }
 

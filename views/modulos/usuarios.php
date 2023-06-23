@@ -25,8 +25,8 @@
       </div>
       
       <div class="box-body">
-        
-          <table class="table table-bordered table-striped dt-responsive tablas">
+
+          <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
 
             <thead>
 
@@ -34,7 +34,7 @@
 
                 <th style="width:10px">#</th>
                 <th>Nombre</th>
-                <th>Usuarios</th>
+                <th>Usuario</th>
                 <th>Foto</th>
                 <th>Perfil</th>
                 <th>Estado</th>

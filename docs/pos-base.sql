@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-06-2023 a las 17:34:24
+-- Tiempo de generación: 11-06-2023 a las 16:41:59
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -30,26 +30,23 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `usuario` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `perfil` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
-  `foto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `nombre` text COLLATE utf8mb4_spanish_ci NOT NULL,
+  `usuario` text COLLATE utf8mb4_spanish_ci NOT NULL,
+  `password` text COLLATE utf8mb4_spanish_ci NOT NULL,
+  `perfil` text COLLATE utf8mb4_spanish_ci NOT NULL,
+  `foto` text COLLATE utf8mb4_spanish_ci NOT NULL,
   `estado` int NOT NULL,
   `ultimo_login` datetime NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Usuario Administrador', 'admin', 'admin123', 'Administrador', 'views/img/usuarios/admin/311.jpg', 1, '2023-06-23 12:33:35', '2023-06-09 21:48:40'),
-(2, 'Kevin Byte', 'byte', '$2a$07$asxx54ahjppf45sd87a5auu83LTMU//KBkuIE1Csn6JOMx3ZU1Olq', 'Administrador', 'views/img/usuarios/byte/377.png', 1, '2023-06-22 16:29:20', '2023-06-22 21:27:27'),
-(3, 'Kevin Montero', 'kevin', '$2a$07$asxx54ahjppf45sd87a5au1Ejn5ZP41RcjGQuvHY2B8m3nFLHSCyu', 'Especial', 'views/img/usuarios/kevin/121.jpg', 0, '0000-00-00 00:00:00', '2023-06-22 21:28:20'),
-(4, 'Admin', 'Aldair', '$2a$07$asxx54ahjppf45sd87a5auBUuu0vUdG0C6dRkPgqQay69cXl5qFbS', 'Vendedor', 'views/img/usuarios/Aldair/500.jpg', 0, '0000-00-00 00:00:00', '2023-06-22 21:28:59');
+(1, 'Usuario Administrador', 'admin', 'admin123', 'Administrador', '', 1, '0000-00-00 00:00:00', '2023-06-09 21:48:40');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
