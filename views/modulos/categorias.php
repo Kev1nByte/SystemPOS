@@ -44,62 +44,42 @@
             </thead>
 
             <tbody>
+       
+            <!-- CATEGORIAS -->        
 
-              <!-- CATEGORIAS -->
+            <?php
 
-              <tr>
+              $item = null;
+              $valor = null;
 
-                <td>1</td>
-                <td>EQUIPOS ELECTROMECÁNICOS</td>
+              $categorias = ControladorCategorias::ctrMostrarCategorias($item,$valor);
 
-                <td>
+              // CATGEORIAS EN MAYUSCULAS class="text-uppercase"
 
-                  <div class="btn-group">
+              foreach ($categorias as $key => $value) {
+           
+                echo ' <tr>
+    
+                        <td>'.($key+1).'</td>
 
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                        <td class="text-uppercase">'.$value["categoria"].'</td>
+    
+                        <td>
+    
+                          <div class="btn-group">
+                              
+                            <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+    
+                            <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+    
+                          </div>  
+    
+                        </td>
+    
+                      </tr>';
+              }
 
-                  </div>
-
-                </td>
-
-              </tr>
-
-              <tr>
-
-                <td>1</td>
-                <td>TALADROS</td>
-                
-                <td>
-
-                  <div class="btn-group">
-
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-              <tr>
-
-                <td>1</td>
-                <td>ANDAMIOS</td>
-                
-                <td>
-
-                  <div class="btn-group">
-
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                  </div>
-
-                </td>
-
-              </tr>
+            ?>     
 
             </tbody>
 
