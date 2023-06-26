@@ -49,51 +49,84 @@
 
             <tbody>
 
-            <?php
+              <tr>
 
-              $item = null;
+                <td>1</td>
+                <td><img src="views/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
+                <td>0001</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                <td>Lorem ipsum </td>
+                <td>20</td>
+                <td>5.00</td>
+                <td>10.00</td>
+                <td>2023-06-11 12:05:32</td>
 
-              $valor = null;
+                <td>
 
-              $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
+                  <div class="btn-group">
 
-              foreach ($productos as $key => $value) {
-                
-                echo '<tr>
-                        <td>'.($key+1).'</td>
-                        <td><img src="views/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                        <td>'.$value["codigo"].'</td>
-                        <td>'.$value["descripcion"].'</td>';
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 
-                        $item = "id";
-                        $valor = $value["id_categoria"];
+                  </div>
 
-                        $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+                </td>
 
-                        echo '<td>'.$categoria["categoria"].'</td>
-                          <td>'.$value["stock"].'</td>
-                          <td>'.$value["precio_compra"].'</td>
-                          <td>'.$value["precio_venta"].'</td>
-                          <td>'.$value["fecha"].'</td>
-                          <td>
+              </tr>
 
-                            <div class="btn-group">
-                                
-                              <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+              <tr>
 
-                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                <td>1</td>
+                <td><img src="views/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
+                <td>0002</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                <td>Lorem ipsum </td>
+                <td>20</td>
+                <td>5.00</td>
+                <td>10.00</td>
+                <td>2023-06-11 12:05:32</td>
 
-                            </div>  
+                <td>
 
-                          </td>
+                  <div class="btn-group">
 
-                      </tr>';
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 
-              }
+                  </div>
 
-            ?>
+                </td>
 
-          </tbody>
+              </tr>
+
+              <tr>
+
+                <td>1</td>
+                <td><img src="views/img/productos/default/anonymous.png" class="img-thumbnail" width="40px"></td>
+                <td>0003</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                <td>Lorem ipsum </td>
+                <td>20</td>
+                <td>5.00</td>
+                <td>10.00</td>
+                <td>2023-06-11 12:05:32</td>
+
+                <td>
+
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+
+            </tbody>
 
         </table>
 
