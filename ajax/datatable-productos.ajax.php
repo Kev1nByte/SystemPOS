@@ -1,10 +1,10 @@
 <?php
 
-// require_once "../controllers/productos.controlador.php";
-// require_once "../models/productos.modelos.php";
+require_once "../controllers/productos.controlador.php";
+require_once "../models/productos.modelos.php";
 
-// require_once "../controllers/categorias.controlador.php";
-// require_once "../models/categorias.modelos.php";
+require_once "../controllers/categorias.controlador.php";
+require_once "../models/categorias.modelos.php";
 
 class TablaProductos{
 
@@ -12,36 +12,45 @@ class TablaProductos{
 
 	public function mostrarTablaProductos(){
 
-		echo '{
+		$item = null;
+    	$valor = null;
 
-			"data": [
-			  [
-				"1",
-				"views/img/productos/101/105.png",
-				"101",
-				"Aspiradora Industrial",		
-				"Taladros",
-				"30",
-				"$ 30",
-				"$ 30",
-				"2017-12-12 11:32:23",
-				"botones"
-			  ],
-			  [
-				"2",
-				"views/img/productos/101/105.pn",
-				"102",
-				"Plato Flotante para Allanadora",		
-				"Taladros",
-				"30",
-				"$ 30",
-				"$ 30",
-				"2017-12-12 11:32:23",
-				"botones"
-			  ]
+  		$productos = ControladorProductos::ctrMostrarProductos($item, $valor);	
 
-			]
-		}';
+
+		
+		$imagen = "<img src='views/img/productos/101/105.png'>";
+		$botones =  "<div class='btn-group'><button class='btn btn-warning'><i class='fa fa-pencil'></i></button><button class='btn btn-danger'><i class='fa fa-times'></i></button></div>"; 
+  
+		$datosJson = '{
+			"data": [';
+  
+			for($i = 0; $i < count($productos); $i++){
+
+				$imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
+  
+				$datosJson .='[
+					"'.($i+1).'",
+					"'.$imagen.'",
+					"'.$productos[$i]["codigo"].'",
+					"'.$productos[$i]["descripcion"].'",		
+					"Taladros",
+					"'.$productos[$i]["stock"].'",	
+					"'.$productos[$i]["precio_compra"].'",
+					"'.$productos[$i]["precio_venta"].'",
+					"'.$productos[$i]["fecha"].'",
+					"'.$botones.'"
+				  ],';
+  
+			}
+  
+			$datosJson = substr($datosJson, 0, -1);
+  
+		   $datosJson .=   '] 
+  
+		   }';
+		  
+		echo $datosJson;
 		
 	}
 

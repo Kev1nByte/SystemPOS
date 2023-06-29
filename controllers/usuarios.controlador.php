@@ -8,22 +8,24 @@ class ControladorUsuarios{
 
         if(isset($_POST["ingUsuario"])){
 
-            if (preg_match('/^[-a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
-                preg_match('/^[-a-zA-Z0-9]+$/', $_POST["ingPassword"])){
-                    
-                $encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');         
-            
-                $tabla = "usuarios";
+			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
+			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
 
-                $item = "usuario";
-                $valor = $_POST["ingUsuario"];
+			   	$encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+				$tabla = "usuarios";
+
+				$item = "usuario";
+				$valor = $_POST["ingUsuario"];
 
                 $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
                 // if (is_array($respuesta) && isset($respuesta["usuario"]) && isset($respuesta["password"]) && 
                 // $respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $_POST["ingPassword"]) {
                 
-                if (isset($respuesta["usuario"] ) == $_POST["ingUsuario"] && isset($respuesta["password"]) == $encriptar) {
+                // if (is_array($respuesta["usuario"] ) == $_POST["ingUsuario"] && isset($respuesta["password"]) == $encriptar) {
+
+				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
                         
 					if($respuesta["estado"] == 1){
 
@@ -65,12 +67,14 @@ class ControladorUsuarios{
 
 					}else {
 						// Acciones si la autenticación falla
-						echo '<br><div class="alert alert-danger">El usuario aún no está activado</div>';
+						echo '<br>
+							<div class="alert alert-danger">El usuario aún no está activado</div>';
 					}
 
                 }else {
                     // Acciones si la autenticación falla
-                    echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
+					echo '<br>
+						<div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
                 }
                 
 
