@@ -25,8 +25,8 @@ class TablaProductos{
 			for($i = 0; $i < count($productos); $i++){
 
 				// TRAEMOS LA IMAGEN
-				$imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
-
+				// $imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
+				$imagen = "<img src='views/img/productos/default/anonymous.png' width='40px'>";
 				// TRAEMOS LA CATEGORÍA
 				$item = "id";
 				$valor = $productos[$i]["id_categoria"];
@@ -34,8 +34,6 @@ class TablaProductos{
 				$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 			
 				// STOCK
-
-  
 				if($productos[$i]["stock"] <= 10){
 
 					$stock = "<button class='btn btn-danger'>".$productos[$i]["stock"]."</button>";
