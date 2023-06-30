@@ -300,8 +300,16 @@
 
       </form>
 
+      <?php
+
+        $crearProducto = new ControladorProductos();
+        $crearProducto -> ctrCrearProducto();
+
+      ?> 
+
     </div>
 
   </div>
 
 </div>
+
