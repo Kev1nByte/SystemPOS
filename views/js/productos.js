@@ -96,10 +96,10 @@ $("#nuevoPrecioCompra, #editarPrecioCompra").change(function(){
 
 		var editarPorcentaje = Number(($("#editarPrecioCompra").val()*valorPorcentaje/100))+Number($("#editarPrecioCompra").val());
 
-		$("#nuevoPrecioVenta").val(porcentaje);
+		$("#nuevoPrecioVenta").val(porcentaje.toFixed(2));
 		$("#nuevoPrecioVenta").prop("readonly",true);
 
-		$("#editarPrecioVenta").val(editarPorcentaje);
+		$("#editarPrecioVenta").val(editarPorcentaje.toFixed(2));
 		$("#editarPrecioVenta").prop("readonly",true);
 
 	}
@@ -118,10 +118,10 @@ $(".nuevoPorcentaje").change(function(){
 
 		var editarPorcentaje = Number(($("#editarPrecioCompra").val()*valorPorcentaje/100))+Number($("#editarPrecioCompra").val());
 
-		$("#nuevoPrecioVenta").val(porcentaje);
+		$("#nuevoPrecioVenta").val(porcentaje.toFixed(2));
 		$("#nuevoPrecioVenta").prop("readonly",true);
 
-		$("#editarPrecioVenta").val(editarPorcentaje);
+		$("#editarPrecioVenta").val(editarPorcentaje.toFixed(2));
 		$("#editarPrecioVenta").prop("readonly",true);
 
 	}

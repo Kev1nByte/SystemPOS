@@ -29,7 +29,8 @@ class ControladorProductos{
 
 			   	$ruta = "views/img/productos/default/anonymous.png";
 
-			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
+			   	// if(isset($_FILES["nuevaImagen"]["tmp_name"])){
+				if (isset($_FILES["nuevaImagen"]["tmp_name"]) && $_FILES["nuevaImagen"]["size"] > 0) {
 
 					list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
 
