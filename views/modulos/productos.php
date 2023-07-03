@@ -140,7 +140,7 @@
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
                 <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
-                  
+                    
                   <option value="">Selecionar categoría</option>
 
                   <?php
@@ -156,7 +156,7 @@
 
                     }
 
-                  ?>
+                    ?>
 
                 </select>
 
@@ -186,8 +186,8 @@
               
                 <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" id="nuevaDescripcion" required>
-
+                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
+                    
               </div>
 
             </div>         
@@ -201,7 +201,7 @@
                 <span class="input-group-addon"><i class="fa fa-check"></i></span> 
 
                 <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
-
+           
               </div>
 
             </div>
@@ -213,10 +213,10 @@
               <div class="col-xs-12 col-sm-6">
                 
                 <div class="input-group">
-                  
+                
                   <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
 
-                  <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0"  placeholder="Precio de compra" required>
+                  <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" min="0" step="any" placeholder="Precio de compra" required>
 
                 </div>
 
@@ -231,7 +231,7 @@
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
                   <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" min="0" step="any" placeholder="Precio de venta" required>
-              
+
                 </div>
 
                 <br>
@@ -302,10 +302,10 @@
 
       <?php
 
-        $crearProducto = new ControladorProductos();
-        $crearProducto -> ctrCrearProducto();
+      $crearProducto = new ControladorProductos();
+      $crearProducto -> ctrCrearProducto();
 
-      ?> 
+      ?>  
 
     </div>
 
@@ -349,7 +349,7 @@
 
                 <select class="form-control input-lg"  name="editarCategoria" readonly required>
                   
-                  <option id="editarCategoria"></option>a</option>
+                  <option id="editarCategoria"></option>
 
                 </select>
 
@@ -379,7 +379,7 @@
               
                 <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
 
-                <input type="text" class="form-control input-lg"  id="editarDescripcion" name="editarDescripcion" required>
+                <input type="text" class="form-control input-lg" id="editarDescripcion" name="editarDescripcion" required>
 
               </div>
 
@@ -393,7 +393,7 @@
               
                 <span class="input-group-addon"><i class="fa fa-check"></i></span> 
 
-                <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" required>
+                  <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" required>
 
               </div>
 
@@ -408,8 +408,8 @@
                 <div class="input-group">
                   
                   <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
-
-                  <input type="number" class="form-control input-lg" id="editarPrecioCompra" name="editarPrecioCompra" min="0" required>
+                  
+                  <input type="number" class="form-control input-lg" id="editarPrecioCompra" name="editarPrecioCompra" min="0" step="any" required>
 
                 </div>
 
@@ -424,7 +424,7 @@
                   <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
 
                   <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" min="0" step="any" readonly required>
-              
+
                 </div>
 
                 <br>
@@ -453,7 +453,7 @@
                   <div class="input-group">
                       
                     <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" step="any" value="40" required>
-
+                    
                     <span class="input-group-addon"><i class="fa fa-percent"></i></span>
 
                   </div>
@@ -466,7 +466,7 @@
 
              <!-- Entrada para subir imagen -->
 
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="panel">SUBIR IMAGEN</div>
 
@@ -476,7 +476,7 @@
 
               <img src="views/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
 
-              <input type="hidden" name="imagenActual" id="imagenActual">
+              <!-- <input type="hidden" name="imagenActual" id="imagenActual"> -->
 
             </div>
 
@@ -507,4 +507,11 @@
   </div>
 
 </div>
+
+<?php
+
+  $eliminarProducto = new ControladorProductos();
+  $eliminarProducto -> ctrEliminarProducto();
+
+?>      
 

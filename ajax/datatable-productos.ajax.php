@@ -15,9 +15,7 @@ class TablaProductos{
 		$item = null;
     	$valor = null;
 
-  		$productos = ControladorProductos::ctrMostrarProductos($item, $valor);	
-
-		
+  		$productos = ControladorProductos::ctrMostrarProductos($item, $valor);			
 		
 		$datosJson = '{
 			"data": [';
@@ -25,9 +23,12 @@ class TablaProductos{
 			for($i = 0; $i < count($productos); $i++){
 
 				// TRAEMOS LA IMAGEN
+
 				$imagen = "<img src='".$productos[$i]["imagen"]."' width='40px'>";
 				// $imagen = "<img src='views/img/productos/default/anonymous.png' width='40px'>";
+				
 				// TRAEMOS LA CATEGORÍA
+
 				$item = "id";
 				$valor = $productos[$i]["id_categoria"];
 
@@ -49,8 +50,8 @@ class TablaProductos{
 				}  
 
 				// TRAEMOS LAS ACCIONES
-				$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>";   
-
+				$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarProducto' idProducto='".$productos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarProducto'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarProducto' idProducto='".$productos[$i]["id"]."' codigo='".$productos[$i]["codigo"]."' imagen='".$productos[$i]["imagen"]."'><i class='fa fa-times'></i></button></div>"; 
+				
 				$datosJson .='[
 					"'.($i+1).'",
 					"'.$imagen.'",

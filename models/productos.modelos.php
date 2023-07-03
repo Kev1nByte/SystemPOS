@@ -33,7 +33,7 @@ class ModeloProductos{
 		$stmt = null;
 
 	}
-
+	
 	// REGISTRO DE PRODUCTO
 
 	static public function mdlIngresarProducto($tabla, $datos){
@@ -88,6 +88,30 @@ class ModeloProductos{
 		}
 
 		$stmt->close();
+		$stmt = null;
+
+	}
+
+	// BORRAR PRODUCTO
+
+	static public function mdlEliminarProducto($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
+
+		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
 		$stmt = null;
 
 	}

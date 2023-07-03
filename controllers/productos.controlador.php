@@ -27,60 +27,60 @@ class ControladorProductos{
 
 				// VALIDAR IMAGEN
 
-				$ruta = "views/img/productos/default/anonymous.png";
+			   	$ruta = "views/img/productos/default/anonymous.png";
 
-				if(isset($_FILES["nuevaImagen"]["tmp_name"])){
+			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
-				 list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
+					list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
 
-				 $nuevoAncho = 500;
-				 $nuevoAlto = 500;
+					$nuevoAncho = 500;
+					$nuevoAlto = 500;
 
-				//  CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
+					// CREAMOS EL DIRECTORIO DONDE VAMOS A GUARDAR LA FOTO DEL USUARIO
 
-				 $directorio = "views/img/productos/".$_POST["nuevoCodigo"];
+					$directorio = "views/img/productos/".$_POST["nuevoCodigo"];
 
-				 mkdir($directorio, 0755);
+					mkdir($directorio, 0755);
 
-				//  DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+					// DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
 
-				 if($_FILES["nuevaImagen"]["type"] == "image/jpeg"){
+					if($_FILES["nuevaImagen"]["type"] == "image/jpeg"){
 
-					// GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						// GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 
-					 $aleatorio = mt_rand(100,999);
+						$aleatorio = mt_rand(100,999);
 
-					 $ruta = "views/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
+						$ruta = "views/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".jpg";
 
-					 $origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);						
+						$origen = imagecreatefromjpeg($_FILES["nuevaImagen"]["tmp_name"]);						
 
-					 $destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-					 imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-					 imagejpeg($destino, $ruta);
+						imagejpeg($destino, $ruta);
 
-				 }
+					}
 
-				 if($_FILES["nuevaImagen"]["type"] == "image/png"){
-				
-					// GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-					
-					$aleatorio = mt_rand(100,999);
+					if($_FILES["nuevaImagen"]["type"] == "image/png"){
 
-				    $ruta = "views/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
+						// GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 
-					$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);						
+						$aleatorio = mt_rand(100,999);
 
-					$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+						$ruta = "views/img/productos/".$_POST["nuevoCodigo"]."/".$aleatorio.".png";
 
-					imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+						$origen = imagecreatefrompng($_FILES["nuevaImagen"]["tmp_name"]);						
 
-					imagepng($destino, $ruta);
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-				 }
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-			 }
+						imagepng($destino, $ruta);
+
+					}
+
+				}
 
 				$tabla = "productos";
 
@@ -274,6 +274,47 @@ class ControladorProductos{
 
 	}
 
-}
+	// BORRAR PRODUCTO
+	
+	static public function ctrEliminarProducto(){
 
-?>
+		if(isset($_GET["idProducto"])){
+
+			$tabla ="productos";
+			$datos = $_GET["idProducto"];
+
+			if($_GET["imagen"] != "" && $_GET["imagen"] != "views/img/productos/default/anonymous.png"){
+
+				unlink($_GET["imagen"]);
+				rmdir('views/img/productos/'.$_GET["codigo"]);
+
+			}
+
+			$respuesta = ModeloProductos::mdlEliminarProducto($tabla, $datos);
+
+			if($respuesta == "ok"){
+
+				echo'<script>
+
+				swal({
+					  type: "success",
+					  title: "El producto ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
+					  }).then(function(result){
+								if (result.value) {
+
+								window.location = "productos";
+
+								}
+							})
+
+				</script>';
+
+			}		
+		}
+
+
+	}
+
+}

@@ -8,7 +8,7 @@ require_once "../models/categorias.modelos.php";
 
 class AjaxProductos{
 
-//   GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
+  // GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
 
   public $idCategoria;
 
@@ -40,13 +40,13 @@ class AjaxProductos{
 
 }
 
-// GENERAR CODIOG APARTIR DE ID CATEGORIA
+// GENERAR CÓDIGO A PARTIR DE ID CATEGORIA
 
-if (isset($_POST["idCategoria"])) {
+if(isset($_POST["idCategoria"])){
 
-    $codigoProducto = new AjaxProductos();
-    $codigoProducto -> idCategoria = $_POST["idCategoria"];
-    $codigoProducto -> ajaxCrearCodigoProducto();
+  $codigoProducto = new AjaxProductos();
+  $codigoProducto -> idCategoria = $_POST["idCategoria"];
+  $codigoProducto -> ajaxCrearCodigoProducto();
 
 }
 
