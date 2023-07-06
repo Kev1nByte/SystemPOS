@@ -52,40 +52,54 @@
 
               <!-- CLIENTES -->
 
-              <tr>
+              <?php
 
-                <td>1</td>
+                $item = null;
+                $valor = null;
+
+                $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+                foreach ($clientes as $key => $value) {
+                  
+
+                  echo '<tr>
+
+                          <td>'.($key+1).'</td>
+
+                          <td>'.$value["nombre"].'</td>
+
+                          <td>'.$value["documento"].'</td>
+
+                          <td>'.$value["email"].'</td>
+
+                          <td>'.$value["telefono"].'</td>
+
+                          <td>'.$value["direccion"].'</td>
+
+                          <td>'.$value["fecha_nacimiento"].'</td>             
+
+                          <td>'.$value["compras"].'</td>
+
+                          <td>0000-00-00 00:00:00</td>
+
+                          <td>'.$value["fecha"].'</td>
+
+                          <td>
+
+                            <div class="btn-group">
+
+                              <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+        
+                            </div> 
+
+                          </td>
+
+                  </tr>';
                 
-                <td>Kevin Montero</td>
+                }
 
-                <td>732823943</td>
-
-                <td>kevin@gmail.com</td>
-
-                <td>555 555 5 </td>
-
-                <td>Calle las Palmeras</td>
-
-                <td>1998-23-12</td>
-
-                <td>35</td>
-
-                <td>2023-01-10 12:05:22</td>
-                          
-                <td>2023-01-10 12:05:22</td>
-
-                <td>
-
-                  <div class="btn-group">
-
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                  </div>
-
-                </td>
-
-              </tr>          
+              ?>      
 
             </tbody>
 
