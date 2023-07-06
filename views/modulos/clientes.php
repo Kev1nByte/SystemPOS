@@ -88,7 +88,8 @@
 
                             <div class="btn-group">
 
-                              <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+
                               <button class="btn btn-danger"><i class="fa fa-times"></i></button>
         
                             </div> 
@@ -245,6 +246,147 @@
         $crearCliente -> ctrCrearCliente();
 
       ?>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Modal Editar Usuario -->
+
+<div id="modalEditarCliente" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!-- Cabeza del modal -->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar cliente</h4>
+
+        </div>
+
+        <!-- Cuerpo modal -->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- Entrada para editar el nombre -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarCliente" id="editarCliente" required>
+
+                <input type="hidden" id="idCliente" name="idCliente">
+                
+              </div>
+
+            </div>
+
+            <!-- Entrada para editar el documento ID -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="number" min="0" class="form-control input-lg" name="editarDocumentoId" id="editarDocumentoId" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para editar el email -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
+
+                <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para editar el teléfono -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono"
+                data-inputmask="'mask':'(99) 999-999-999'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para editar la dirección -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion" required>
+
+              </div>
+
+            </div>
+
+            <!-- Entrada para editar la fecha de nacimiento -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarFechaNacimiento" id="editarFechaNacimiento"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Pie Modal -->
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+      </form>
+
+      <?php
+
+        $editarCliente = new ControladorClientes();
+        $editarCliente -> ctrEditarCliente();
+
+        ?>         
 
     </div>
 
