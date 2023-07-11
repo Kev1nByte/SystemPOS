@@ -1,43 +1,99 @@
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+  
   <section class="content-header">
     <h1>
-        Administrar Ventas
+      Agregar Ventas
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Administrar Ventas</li>
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li class="active">Agregar Ventas</li>
     </ol>
   </section>
 
-    <!-- Main content -->
   <section class="content">
 
-    <!-- Default box -->
     <div class="box">     
+
       <div class="box-header with-border">
-        <h3 class="box-title">Title</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
+
+        <a href="crear-venta">
+
+          <button class="btn btn-primary">
+
+            Agregar Venta
+
+          </button>
+
+        </a>
+
       </div>
       
       <div class="box-body">
-          Start creating your amazing application!
+        
+          <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+
+            <thead>
+
+              <tr>
+
+                <th style="width:10px">#</th>
+                <th>Código factura</th>
+                <th>Cliente</th>
+                <th>Vendedor</th>
+                <th>Forma de pago</th>
+                <th>Neto</th>
+                <th>Total</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+            <!-- CLIENTES -->
+
+              <tr>
+
+                <td>1</td>
+                
+                <td>1000123</td>
+
+                <td>Kevin Montero</td>
+
+                <td>Aldair Zapata</td>
+
+                <td>TC-123455676</td>
+
+                <td>$ 1,0000.00</td>
+
+                <td>$ 1,0180.00</td>
+
+                <td>2023-01-10 12:05:22</td>
+                          
+                <td>
+
+                  <div class="btn-group">
+
+                    <button class="btn btn-info"><i class="fa fa-print"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+
+                  </div>
+
+                </td>
+
+              </tr>          
+
+            </tbody>
+
+        </table>
+
       </div>
-        <!-- /.box-body -->
-      <div class="box-footer">
-          Footer
-      </div>
-      <!-- /.box-footer-->
+    
     </div>
-    <!-- /.box -->
+    
   </section>
-    <!-- /.content -->
+   
 </div>
-  <!-- /.content-wrapper -->
+
