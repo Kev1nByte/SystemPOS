@@ -29,7 +29,7 @@
 
           <div class="box-header with-border"></div>
 
-          <form role="form" method="post">
+          <form role="form" method="post" class="formularioVenta">
 
             <div class="box-body">
         
@@ -129,7 +129,7 @@
 
                   <!-- DESCRIPCION DEL PRODUCTO -->
 
-                  <div class="col-xs-6" style="padding-right:0px">
+                  <!-- <div class="col-xs-6" style="padding-right:0px">
                     
                     <div class="input-group">
 
@@ -139,19 +139,19 @@
 
                     </div>
 
-                  </div>
+                  </div> -->
 
                   <!-- CANTIDAD DEL PRODUCTO -->
 
-                  <div class="col-xs-3">
+                  <!-- <div class="col-xs-3">
 
                     <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder ="0" required>
 
-                  </div>
+                  </div> -->
 
                   <!-- PRECIO DEL PRODUCTO -->
 
-                  <div class="col-xs-3" style="padding-left:0px">
+                  <!-- <div class="col-xs-3" style="padding-left:0px">
                     
                     <div class="input-group">
 
@@ -161,7 +161,7 @@
 
                     </div>
 
-                  </div>
+                  </div> -->
           
                 </div>
 
@@ -291,7 +291,7 @@
 
           <div class="box-body">
               
-            <table class="table table-bordered table-striped dt-responsive tablaVentas">
+            <table class="table table-bordered table-striped dt-responsive tablaVentas"  width="100%">
                 
               <thead>
 
