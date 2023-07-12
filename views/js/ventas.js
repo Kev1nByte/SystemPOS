@@ -45,9 +45,7 @@ $('.tablaVentas').DataTable( {
 
 });
 
-/*=============================================
-AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
-=============================================*/
+// AGREGANDO PRODUCTOS A LA VENTA DESDE LA TABLA
 
 $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
@@ -60,7 +58,7 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 	var datos = new FormData();
     datos.append("idProducto", idProducto);
 
-     $.ajax({
+    $.ajax({
 
      	url:"ajax/productos.ajax.php",
       	method: "POST",
@@ -74,6 +72,22 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
       	    var descripcion = respuesta["descripcion"];
           	var stock = respuesta["stock"];
           	var precio = respuesta["precio_venta"];
+
+          	// EVITAR AGREGAR PRODUTO CUANDO EL STOCK ESTÁ EN CERO
+
+          	if(stock == 0){
+
+				swal({
+					title: "No hay stock disponible",
+					type: "error",
+					confirmButtonText: "¡Cerrar!"
+			  	});
+
+			  	$("button[idProducto='"+idProducto+"']").addClass("btn-primary agregarProducto");
+
+			  	return;
+
+			}
 
           	$(".nuevoProducto").append(
 
@@ -119,9 +133,28 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
       	}
 
-     })
+    })
 
 });
+
+// CUANDO CARGUE LA TABLA CADA VEZ QUE NAVEGUE EN ELLA
+
+$(".tablaVentas").on("draw.dt", function(){
+
+	if(localStorage.getItem("quitarProducto") != null){
+
+		var listaIdProductos = JSON.parse(localStorage.getItem("quitarProducto"));
+
+		for(var i = 0; i < listaIdProductos.length; i++){
+
+			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").removeClass('btn-default');
+			$("button.recuperarBoton[idProducto='"+listaIdProductos[i]["idProducto"]+"']").addClass('btn-primary agregarProducto');
+
+		}
+
+	}
+
+})
 
 // QUITAR PRODUCTOS DE LA VENTA Y RECUPERAR BOTÓN
 
@@ -134,6 +167,22 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 	$(this).parent().parent().parent().parent().remove();
 
 	var idProducto = $(this).attr("idProducto");
+
+	// ALMACENAR EN EL LOCALSTORAGE EL ID DEL PRODUCTO A QUITAR
+
+	if(localStorage.getItem("quitarProducto") == null){
+
+		idQuitarProducto = [];
+	
+	}else{
+
+		idQuitarProducto.concat(localStorage.getItem("quitarProducto"))
+
+	}
+
+	idQuitarProducto.push({"idProducto":idProducto});
+
+	localStorage.setItem("quitarProducto", JSON.stringify(idQuitarProducto));
 
 	$("button.recuperarBoton[idProducto='"+idProducto+"']").removeClass('btn-default');
 
