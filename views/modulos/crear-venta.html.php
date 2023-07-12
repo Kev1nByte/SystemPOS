@@ -45,7 +45,7 @@
 
                     <input type="text" class="form-control" id="nuevoVendedor" value="<?php echo $_SESSION["nombre"]; ?>" readonly>
 
-                    <input type="hidden" name="idVendedor" value="<?php echo $_SESSION["id"]; ?>">
+                    <input type="hidden" id="nuevoVendedor" name="nuevoVendedor" value="Usuario Administrador" readonly>
 
                   </div>
 
@@ -59,31 +59,8 @@
                     
                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
 
-                    <?php
-
-                      $item = null;
-                      $valor = null;
-
-                      $ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
-
-                        if(!$ventas){
-
-                          echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10001" readonly>';
-                    
-                        }else{
-
-                          foreach ($ventas as $key => $value) {                  
-                              
-                        }
-
-                        $codigo = $value["codigo"] + 1;
-
-                        echo '<input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="'.$codigo.'" readonly>';           
-
-                      }
-
-                    ?>
-                                     
+                    <input type="text" class="form-control" id="nuevaVenta" name="nuevaVenta" value="10001" readonly>
+                                    
                   </div>
                 
                 </div>
@@ -99,21 +76,6 @@
                     <select class="form-control" id="seleccionarCliente" name="seleccionarCliente" required>
 
                       <option value="">Seleccionar cliente</option>
-
-                      <?php
-
-                        $item = null;
-                        $valor = null;
-
-                        $categorias = ControladorClientes::ctrMostrarClientes($item, $valor);
-
-                        foreach ($categorias as $key => $value) {
-
-                          echo '<option value="'.$value["id"].'">'.$value["nombre"].'</option>';
-
-                        }
-
-                    ?>
 
                     </select>
                     
