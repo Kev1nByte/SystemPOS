@@ -334,6 +334,12 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 		// SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
 
 		$(this).val(1);
+
+		var precioFinal = $(this).val() * precio.attr("precioReal");
+
+		precio.val(precioFinal);
+
+		sumarTotalPrecios();
 	
 		swal({
 
