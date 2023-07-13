@@ -191,6 +191,8 @@
                       <tbody>
                       
                         <tr>
+
+                          <!-- Impuesto Venta -->
                           
                           <td style="width: 50%">
                             
@@ -199,7 +201,14 @@
                               <input type="number" class="form-control input-lg" min="0" id="nuevoImpuestoVenta" name="nuevoImpuestoVenta" placeholder="0" required>
 
                               <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+
+                              <!-- Impuesto Venta -->
                         
+                              <input type="hidden" name="nuevoPrecioImpuesto"  id="nuevoPrecioImpuesto">
+
+                              <input type="hidden" name="nuevoPrecioNeto" id="nuevoPrecioNeto">
+                              
+
                             </div>
 
                           </td>
