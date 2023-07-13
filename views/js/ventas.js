@@ -273,7 +273,7 @@ $(".btnAgregarProducto").click(function(){
 
 		         }
 
-	         }
+	        }
 
       	}
 
@@ -307,9 +307,41 @@ $(".formularioVenta").on("change", "select.nuevaDescripcionProducto", function()
 				
 			$(nuevaCantidadProducto).attr("stock", respuesta["stock"]);
 			$(nuevoPrecioProducto).val(respuesta["precio_venta"]);
+			$(nuevoPrecioProducto).attr("precioReal", respuesta["precio_venta"]);
 
 		}
 
     })
+
+})
+
+// MODIFICAR LA CANTIDAD
+
+$(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
+
+	var precio = $(this).parent().parent().children(".ingresoPrecio").children().children(".nuevoPrecioProducto");
+
+	var precioFinal = $(this).val() * precio.attr("precioReal");
+	
+	precio.val(precioFinal);
+
+	if(Number($(this).val()) > Number($(this).attr("stock"))){
+
+		// SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
+
+		$(this).val(1);
+	
+		swal({
+
+			title: "La cantidad supera el Stock",
+			text: "¡Sólo hay "+$(this).attr("stock")+" unidades!",
+			type: "error",
+			confirmButtonText: "¡Cerrar!"
+
+	    });
+
+	    return;
+
+	}
 
 })
