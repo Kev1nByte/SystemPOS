@@ -139,6 +139,10 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 	        
 			agregarImpuesto()
 
+			// PONER FORMATO AL PRECIO DE LOS PRODUCTOS
+
+	        $(".nuevoPrecioProducto").number(true, 2);
+
       	}
 
     })
@@ -238,59 +242,80 @@ $(".btnAgregarProducto").click(function(){
       	dataType:"json",
       	success:function(respuesta){
       	    
-      	    $(".nuevoProducto").append(
+      	    	$(".nuevoProducto").append(
 
-			'<div class="row" style="padding:5px 15px">'+
+          	'<div class="row" style="padding:5px 15px">'+
 
-				'<!-- Descripción del producto -->'+
-				
-				'<div class="col-xs-6" style="padding-right:0px">'+
-				
-					'<div class="input-group">'+
-					
-					'<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto><i class="fa fa-times"></i></button></span>'+
+			  '<!-- Descripción del producto -->'+
+	          
+	          '<div class="col-xs-6" style="padding-right:0px">'+
+	          
+	            '<div class="input-group">'+
+	              
+	              '<span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs quitarProducto" idProducto><i class="fa fa-times"></i></button></span>'+
 
-					'<select class="form-control nuevaDescripcionProducto" id="producto'+numProducto+'" idProducto name="nuevaDescripcionProducto" required>'+
+	              '<select class="form-control nuevaDescripcionProducto" id="producto'+numProducto+'" idProducto name="nuevaDescripcionProducto" required>'+
 
-					'<option>Seleccione el producto</option>'+
+	              '<option>Seleccione el producto</option>'+
 
-					'</select>'+  
+	              '</select>'+  
 
-					'</div>'+
+	            '</div>'+
 
-				'</div>'+
+	          '</div>'+
 
-				'<!-- Cantidad del producto -->'+
+	          '<!-- Cantidad del producto -->'+
 
-				'<div class="col-xs-3 ingresoCantidad">'+
-					
-					'<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock nuevoStock required>'+
+	          '<div class="col-xs-3 ingresoCantidad">'+
+	            
+	             '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock nuevoStock required>'+
 
-				'</div>' +
+	          '</div>' +
 
-				'<!-- Precio del producto -->'+
+	          '<!-- Precio del producto -->'+
 
-				'<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
+	          '<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">'+
 
-					'<div class="input-group">'+
+	            '<div class="input-group">'+
 
-					'<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
-						
-					'<input type="text" class="form-control nuevoPrecioProducto" precioReal="" name="nuevoPrecioProducto" readonly required>'+
-		
-					'</div>'+
-					
-				'</div>'+
+	              '<span class="input-group-addon"><i class="ion ion-social-usd"></i></span>'+
+	                 
+	              '<input type="text" class="form-control nuevoPrecioProducto" precioReal="" name="nuevoPrecioProducto" readonly required>'+
+	 
+	            '</div>'+
+	             
+	          '</div>'+
 
-			'</div>');
+	        '</div>');
 
-			// SUMAR TOTAL DE PRECIOS
+	        // AGREGAR LOS PRODUCTOS AL SELECT 
 
-			sumarTotalPrecios()
+	         respuesta.forEach(funcionForEach);
 
-			// AGREGAR IMPUESTO
+	         function funcionForEach(item, index){
+
+	         	if(item.stock != 0){
+
+		         	$("#producto"+numProducto).append(
+
+						'<option idProducto="'+item.id+'" value="'+item.descripcion+'">'+item.descripcion+'</option>'
+		         	)
+
+		         }
+
+	         }
+
+	         // SUMAR TOTAL DE PRECIOS
+
+    		sumarTotalPrecios()
+
+    		// AGREGAR IMPUESTO
 	        
-			agregarImpuesto()
+	        agregarImpuesto()
+
+	        // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
+
+	        $(".nuevoPrecioProducto").number(true, 2);
 
       	}
 
@@ -429,3 +454,7 @@ $("#nuevoImpuestoVenta").change(function(){
 	agregarImpuesto();
 
 });
+
+// FORMATO AL PRECIO FINAL
+
+$("#nuevoTotalVenta").number(true, 2);
