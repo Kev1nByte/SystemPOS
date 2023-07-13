@@ -131,6 +131,10 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function(){
 
 	        '</div>') 
 
+			// SUMAR TOTAL DE PRECIOS
+
+    		sumarTotalPrecios()
+
       	}
 
     })
@@ -264,16 +268,16 @@ $(".btnAgregarProducto").click(function(){
 
 	        function funcionForEach(item, index){
 
-	         	if(item.stock != 0){
-
 		         	$("#producto"+numProducto).append(
 
 						'<option idProducto="'+item.id+'" value="'+item.descripcion+'">'+item.descripcion+'</option>'
 		         	)
 
-		         }
-
 	        }
+
+			// SUMAR TOTAL DE PRECIOS
+
+			sumarTotalPrecios()
 
       	}
 
@@ -344,4 +348,33 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function(){
 
 	}
 
+	// SUMAR TOTAL DE PRECIOS
+
+	sumarTotalPrecios()
+
 })
+
+// SUMAR TODOS LOS PRECIOS
+
+function sumarTotalPrecios(){
+
+	var precioItem = $(".nuevoPrecioProducto");
+	var arraySumaPrecio = [];  
+
+	for(var i = 0; i < precioItem.length; i++){
+
+		arraySumaPrecio.push(Number($(precioItem[i]).val()));
+		 
+	}
+
+	function sumaArrayPrecios(total, numero){
+
+		return total + numero;
+
+	}
+
+	var sumaTotalPrecio = arraySumaPrecio.reduce(sumaArrayPrecios);
+	
+	$("#nuevoTotalVenta").val(sumaTotalPrecio);
+	
+}
