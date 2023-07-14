@@ -126,44 +126,11 @@
                 <!-- ENTRADA PARA AGREGAR PRODUCTO -->
 
                 <div class="form-group row nuevoProducto">
-
-                  <!-- DESCRIPCION DEL PRODUCTO -->
-
-                  <!-- <div class="col-xs-6" style="padding-right:0px">
-                    
-                    <div class="input-group">
-
-                      <span class="input-group-addon"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></span></button></span>
-
-                      <input type="text" class="form-control" id="agregarProducto" name="agregarProducto" placeholder="Descripción del producto" required>
-
-                    </div>
-
-                  </div> -->
-
-                  <!-- CANTIDAD DEL PRODUCTO -->
-
-                  <!-- <div class="col-xs-3">
-
-                    <input type="number" class="form-control" id="nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" placeholder ="0" required>
-
-                  </div> -->
-
-                  <!-- PRECIO DEL PRODUCTO -->
-
-                  <!-- <div class="col-xs-3" style="padding-left:0px">
-                    
-                    <div class="input-group">
-
-                      <span class="input-group-addon"><i class="ion ion-social-usd"></i></span> 
-
-                      <input type="number" class="form-control" id="nuevaPrecioProducto" name="nuevaPrecioProducto" min="1" placeholder="000000" readonly required>
-
-                    </div>
-
-                  </div> -->
-          
+                 
+      
                 </div>
+
+                <input type="hidden" id="listaProducto" name="listaProducto">
 
                 <!-- BOTON PARA AGREGAR PRODUCTO -->
 
