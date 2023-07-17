@@ -54,36 +54,55 @@
 
             <!-- CLIENTES -->
 
-              <tr>
+            <?php
 
-                <td>1</td>
+              $item = null;
+              $valor = null;
+
+              $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+              foreach ($clientes as $key => $value) {
                 
-                <td>1000123</td>
 
-                <td>Kevin Montero</td>
+                echo '<tr>
 
-                <td>Aldair Zapata</td>
+                        <td>'.($key+1).'</td>
 
-                <td>TC-123455676</td>
+                        <td>'.$value["nombre"].'</td>
 
-                <td>$ 1,0000.00</td>
+                        <td>'.$value["documento"].'</td>
 
-                <td>$ 1,0180.00</td>
+                        <td>'.$value["email"].'</td>
 
-                <td>2023-01-10 12:05:22</td>
-                          
-                <td>
+                        <td>'.$value["telefono"].'</td>
 
-                  <div class="btn-group">
+                        <td>'.$value["direccion"].'</td>
 
-                    <button class="btn btn-info"><i class="fa fa-print"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                        <td>'.$value["fecha_nacimiento"].'</td>             
 
-                  </div>
+                        <td>'.$value["compras"].'</td>
 
-                </td>
+                        <td>'.$value["ultima_compra"].'</td>
 
-              </tr>          
+                        <td>'.$value["fecha"].'</td>
+
+                        <td>
+
+                          <div class="btn-group">
+
+                            <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+
+                            <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                          </div> 
+
+                        </td>
+
+                </tr>';
+
+              }
+
+            ?>        
 
             </tbody>
 
