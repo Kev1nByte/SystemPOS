@@ -129,8 +129,8 @@
                  
       
                 </div>
-
-                <input type="hidden" id="listaProducto" name="listaProducto">
+                
+                <input type="hidden" id="listaProductos" name="listaProductos">
 
                 <!-- BOTON PARA AGREGAR PRODUCTO -->
 
@@ -188,6 +188,8 @@
 
                               <input type="text" class="form-control input-lg" id="nuevoTotalVenta" name="nuevoTotalVenta" total="" placeholder="00000" readonly required>                     
                         
+                              <input type="hidden" id="totalVenta" name="totalVenta">
+
                             </div>
 
                           </td>
@@ -244,6 +246,13 @@
             </div>
 
           </form>
+
+          <?php
+
+            $guardarVenta = new ControladorVentas();
+            $guardarVenta -> ctrCrearVenta();              
+
+          ?>
 
         </div>
       

@@ -208,6 +208,7 @@ $(".formularioVenta").on("click", "button.quitarProducto", function(){
 
 		$("#nuevoTotalVenta").val(0);
 		$("#nuevoImpuestoVenta").val(0);
+		$("#totalVenta").val(0);
 		$("#nuevoTotalVenta").attr("total",0);
 
 	}else{
@@ -443,6 +444,7 @@ function sumarTotalPrecios(){
 	var sumaTotalPrecio = arraySumaPrecio.reduce(sumaArrayPrecios);
 	
 	$("#nuevoTotalVenta").val(sumaTotalPrecio);
+	$("#totalVenta").val(sumaTotalPrecio);
 	$("#nuevoTotalVenta").attr("total",sumaTotalPrecio);
 	
 }
@@ -459,6 +461,8 @@ function agregarImpuesto(){
 	var totalConImpuesto = Number(precioImpuesto) + Number(precioTotal);
 	
 	$("#nuevoTotalVenta").val(totalConImpuesto);
+	
+	$("#totalVenta").val(totalConImpuesto);
 
 	$("#nuevoPrecioImpuesto").val(precioImpuesto);
 
