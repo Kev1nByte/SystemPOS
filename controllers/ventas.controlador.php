@@ -59,6 +59,16 @@ class ControladorVentas{
 
 			$comprasCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item1a, $valor1a, $valor);
 
+			$item1b = "ultima_compra";
+
+			date_default_timezone_set('America/Lima');
+
+			$fecha = date('Y-m-d');
+			$hora = date('H:i:s');
+			$valor1b = $fecha.' '.$hora;
+
+			$fechaCliente = ModeloClientes::mdlActualizarCliente($tablaClientes, $item1b, $valor1b, $valor);
+
 			// GUARDAR LA COMPRA
 
 			$tabla = "ventas";
