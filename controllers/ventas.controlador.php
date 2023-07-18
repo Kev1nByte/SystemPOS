@@ -133,7 +133,6 @@ class ControladorVentas{
 				$listaProductos = $traerVenta["productos"];
 				$cambioProducto = false;
 
-
 			}else{
 
 				$listaProductos = $_POST["listaProductos"];
@@ -244,7 +243,6 @@ class ControladorVentas{
 						   "neto"=>$_POST["nuevoPrecioNeto"],
 						   "total"=>$_POST["totalVenta"],
 						   "metodo_pago"=>$_POST["listaMetodoPago"]);
-
 
 			$respuesta = ModeloVentas::mdlEditarVenta($tabla, $datos);
 
