@@ -37,22 +37,22 @@
 
                 <?php
 
-                    $item = "id";
-                    $valor = $_GET["idVenta"];
+                  $item = "id";
+                  $valor = $_GET["idVenta"];
 
-                    $venta = ControladorVentas::ctrMostrarVentas($item, $valor);
+                  $venta = ControladorVentas::ctrMostrarVentas($item, $valor);
 
-                    $itemUsuario = "id";
-                    $valorUsuario = $venta["id_vendedor"];
+                  $itemUsuario = "id";
+                  $valorUsuario = $venta["id_vendedor"];
 
-                    $vendedor = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
+                  $vendedor = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
 
-                    $itemCliente = "id";
-                    $valorCliente = $venta["id_cliente"];
+                  $itemCliente = "id";
+                  $valorCliente = $venta["id_cliente"];
 
-                    $cliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+                  $cliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
 
-                    $porcentajeImpuesto = $venta["impuesto"] * 100 / $venta["neto"];
+                  $porcentajeImpuesto = $venta["impuesto"] * 100 / $venta["neto"];
 
                 ?>
 
