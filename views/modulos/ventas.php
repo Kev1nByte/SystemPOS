@@ -100,7 +100,7 @@
 
                           <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
 
-                          <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                          <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                         </div>  
 
@@ -114,6 +114,13 @@
             </tbody>
 
         </table>
+
+        <?php
+
+        $eliminarVenta = new ControladorVentas();
+        $eliminarVenta -> ctrEliminarVenta();
+
+        ?>
 
       </div>
     
