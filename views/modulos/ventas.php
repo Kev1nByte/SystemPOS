@@ -98,7 +98,7 @@
                             
                           <button class="btn btn-info"><i class="fa fa-print"></i></button>
 
-                          <a href="index.php?ruta=editar-venta&idVenta='.$value["id"].'"><button class="btn btn-warning"><i class="fa fa-pencil"></i></button></a>
+                          <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
 
                           <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 
