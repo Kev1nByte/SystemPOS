@@ -407,6 +407,18 @@ class ControladorVentas{
 
 	}
 
+	// RANGO FECHAS
+
+	static public function ctrRangoFechasVentas($fechaInicial, $fechaFinal){
+
+		$tabla = "ventas";
+
+		$respuesta = ModeloVentas::mdlRangoFechasVentas($tabla, $fechaInicial, $fechaFinal);
+
+		return $respuesta;
+		
+	}
+
 }
 
 ?>
