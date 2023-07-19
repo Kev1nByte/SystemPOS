@@ -11,15 +11,17 @@
 
 // })
 
-if (localStorage.getItem("capturarRango") != null) {
+// VARIABLE LOCAL STORAGE
 
-	$('#daterange-btn span').html(localStorage.getItem("capturarRango"));
+// if (localStorage.getItem("capturarRango") != null) {
+
+// 	$('#daterange-btn span').html(localStorage.getItem("capturarRango"));
 	
-}else{
+// }else{
 
-	$('#daterange-btn span').html('<i class="fa fa-calendar"></i> Rango de fecha');
+// 	$('#daterange-btn span').html('<i class="fa fa-calendar"></i> Rango de fecha');
 
-}
+// }
 
 $('.tablaVentas').DataTable( {
     "ajax": "ajax/datatable-ventas.ajax.php",
@@ -752,7 +754,7 @@ $('#daterange-btn').daterangepicker(
 
 // CANCELAR RANGO DE FECHAS
 
-$(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
+$(".daterangepicker .range_inputs .cancelBtn").on("click", function(){
 
 	localStorage.removeItem("capturarRango");
 	localStorage.clear();
@@ -762,7 +764,7 @@ $(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
 
 // CAPTURAR HOY
 
-$(".daterangepicker.opensleft .ranges li").on("click", function(){
+$(".daterangepicker .ranges li").on("click", function(){
 
 	var textoHoy = $(this).attr("data-range-key");
 
@@ -774,8 +776,27 @@ $(".daterangepicker.opensleft .ranges li").on("click", function(){
 		var mes = d.getMonth()+1;
 		var año = d.getFullYear();
 
-		var fechaInicial = año+"-0"+mes+"-"+dia;
-		var fechaFinal = año+"-0"+mes+"-"+dia;
+		if(mes < 10){
+
+			var fechaInicial = año+"-0"+mes+"-"+dia;
+			var fechaFinal = año+"-0"+mes+"-"+dia;
+
+		}else if(dia < 10){
+
+			var fechaInicial = año+"-"+mes+"-0"+dia;
+			var fechaFinal = año+"-"+mes+"-0"+dia;
+
+		}else if(mes < 10 && dia < 10){
+
+			var fechaInicial = año+"-0"+mes+"-0"+dia;
+			var fechaFinal = año+"-0"+mes+"-0"+dia;
+
+		}else{
+
+			var fechaInicial = año+"-"+mes+"-"+dia;
+	    	var fechaFinal = año+"-"+mes+"-"+dia;
+
+		}	
 
     	localStorage.setItem("capturarRango", "Hoy");
 

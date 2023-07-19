@@ -60,34 +60,26 @@
 
             </thead>
 
-              <?php
-
-                  if(isset($_GET["fechaInicial"])){
-
-                    $fechaInicial = $_GET["fechaInicial"];
-                    $fechaFinal = $_GET["fechaFinal"];
-
-                  }else{
-
-                    $fechaInicial = null;
-                    $fechaFinal = null;
-
-                  }
-
-                  $respuesta = ControladorVentas::ctrRangoFechasVentas($fechaInicial, $fechaFinal);              
-                
-              ?>
-
             <tbody>
 
             <!-- CLIENTES -->
 
             <?php
 
-              $item = null;
-              $valor = null;
+            
+              if(isset($_GET["fechaInicial"])){
 
-              $respuesta = ControladorVentas::ctrMostrarVentas($item, $valor);
+                $fechaInicial = $_GET["fechaInicial"];
+                $fechaFinal = $_GET["fechaFinal"];
+
+              }else{
+
+                $fechaInicial = null;
+                $fechaFinal = null;
+
+              }
+
+              $respuesta = ControladorVentas::ctrRangoFechasVentas($fechaInicial, $fechaFinal); 
 
               foreach ($respuesta as $key => $value) {
               
