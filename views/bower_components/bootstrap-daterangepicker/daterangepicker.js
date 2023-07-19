@@ -67,7 +67,7 @@
             direction: 'ltr',
             format: moment.localeData().longDateFormat('L'),
             separator: ' - ',
-            applyLabel: 'Apply',
+            applyLabel: 'Aplicar',
             cancelLabel: 'Cancel',
             weekLabel: 'W',
             customRangeLabel: 'Rango Personalizado',

@@ -754,7 +754,7 @@ $('#daterange-btn').daterangepicker(
 
 // CANCELAR RANGO DE FECHAS
 
-$(".daterangepicker .range_inputs .cancelBtn").on("click", function(){
+$(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function(){
 
 	localStorage.removeItem("capturarRango");
 	localStorage.clear();
@@ -764,7 +764,7 @@ $(".daterangepicker .range_inputs .cancelBtn").on("click", function(){
 
 // CAPTURAR HOY
 
-$(".daterangepicker .ranges li").on("click", function(){
+$(".daterangepicker.opensleft .ranges li").on("click", function(){
 
 	var textoHoy = $(this).attr("data-range-key");
 

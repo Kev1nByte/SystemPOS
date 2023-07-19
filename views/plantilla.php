@@ -47,6 +47,9 @@ session_start();
 
     <!-- Daterange picker -->
     <link rel="stylesheet" href="views/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="views/bower_components/morris.js/morris.css">
     
     <!--=====================================
     PLUGINS DE JAVASCRIPT
@@ -95,6 +98,14 @@ session_start();
     <!-- daterangepicker http://www.daterangepicker.com/-->
     <script src="views/bower_components/moment/min/moment.min.js"></script>
     <script src="views/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Morris.js charts http://morrisjs.github.io/morris.js/-->
+    <script src="views/bower_components/raphael/raphael.min.js"></script>
+    <script src="views/bower_components/morris.js/morris.min.js"></script>
+
+    <!-- ChartJS http://www.chartjs.org/-->
+    <script src="views/bower_components/Chart.js/Chart.js"></script>
+
 
   </head>
 
@@ -166,6 +177,7 @@ session_start();
     <script src="views/js/productos.js"></script>
     <script src="views/js/clientes.js"></script>
     <script src="views/js/ventas.js"></script>
+    <script src="views/js/reportes.js"></script>
 
   </body>
   
