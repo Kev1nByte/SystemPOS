@@ -696,3 +696,13 @@ $(".tablas").on("click", ".btnEliminarVenta", function(){
 	})
   
 })
+
+// IMPRIMIR FACTURA
+
+$(".tablas").on("click", ".btnImprimirFactura", function(){
+
+	var codigoVenta = $(this).attr("codigoVenta");
+
+	window.open("extensions/tcpdf/pdf/factura.php?codigo="+codigoVenta, "_blank");
+	
+})
