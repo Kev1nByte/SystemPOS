@@ -1,15 +1,15 @@
 // VARIABLE LOCAL STORAGE
 
-// if(localStorage.getItem("capturarRango2") != null){
+if(localStorage.getItem("capturarRango2") != null){
 
-// 	$("#daterange-btn2 span").html(localStorage.getItem("capturarRango2"));
+	$("#daterange-btn2 span").html(localStorage.getItem("capturarRango2"));
 
 
-// }else{
+}else{
 
-// 	$("#daterange-btn2 span").html('<i class="fa fa-calendar"></i> Rango de fecha')
+	$("#daterange-btn2 span").html('<i class="fa fa-calendar"></i> Rango de fecha')
 
-// }
+}
 
 // RANGO DE FECHAS
 
