@@ -40,7 +40,23 @@
 
         <div class="box-tools pull-right">
 
+          <?php
 
+            if(isset($_GET["fechaInicial"])){
+
+              echo '<a href="views/modulos/descargar-reporte.php?reporte=reporte&fechaInicial='.$_GET["fechaInicial"].'&fechaFinal='.$_GET["fechaFinal"].'">';
+
+            }else{
+
+              echo '<a href="views/modulos/descargar-reporte.php?reporte=reporte">';
+
+            }         
+
+            ?>
+   
+            <button class="btn btn-success" style="margin-top:5px">Descargar reporte en Excel</button>
+
+          </a>
 
         </div>
          
