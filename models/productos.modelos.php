@@ -6,8 +6,9 @@ class ModeloProductos{
 
 	// MOSTRAR PRODUCTOS
 
-	static public function mdlMostrarProductos($tabla, $item, $valor, $orden){
-
+	static public function mdlMostrarProductos($tabla, $item = null, $valor = null, $orden = 'id'){
+	// static public function mdlMostrarProductos($tabla, $item, $valor, $orden){
+		
 		if($item != null){
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC");

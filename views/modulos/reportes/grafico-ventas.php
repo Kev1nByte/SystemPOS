@@ -47,7 +47,7 @@ $noRepetirFechas = array_unique($arrayFechas);
 ?>
 <!-- GRÁFICO DE VENTAS -->
 
-<div class="box box-solid bg-teal-gradient">
+<div class="box box-solid bg-blue-gradient">
 	
 	<div class="box-header">
 		
