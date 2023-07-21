@@ -1,3 +1,19 @@
+<?php
+
+if($_SESSION["perfil"] == "Vendedor"){
+
+  echo '<script>
+
+    window.location = "inicio";
+
+  </script>';
+
+  return;
+
+}
+
+?>
+
 <div class="content-wrapper">
   
   <section class="content-header">
@@ -26,29 +42,30 @@
       
       <div class="box-body">
         
-          <table class="table table-bordered table-striped dt-responsive tablaProductos tbody" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablaProductos tbody" width="100%">
 
-            <thead>
+          <thead>
 
-              <tr>
+            <tr>
 
-                <th style="width:10px">#</th>
-                <th>Imagen</th>
-                <th>Código</th>
-                <th>Descripción</th>
-                <th>Categoría</th>
-                <th>Stock</th>
-                <th>Precio de Compra</th>
-                <th>Precio de Venta</th>
-                <th>Agregado</th>
-                <th>Acciones</th>
+              <th style="width:10px">#</th>
+              <th>Imagen</th>
+              <th>Código</th>
+              <th>Descripción</th>
+              <th>Categoría</th>
+              <th>Stock</th>
+              <th>Precio de Compra</th>
+              <th>Precio de Venta</th>
+              <th>Agregado</th>
+              <th>Acciones</th>
 
-              </tr>
+            </tr>
 
-            </thead>
+          </thead>
 
+          </table>
 
-        </table>
+        <input type="hidden" value="<?php echo $_SESSION['perfil']; ?>" id="perfilOculto">
 
       </div>
     
